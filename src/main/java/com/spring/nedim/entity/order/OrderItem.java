@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "order_items")
 public class OrderItem{
+
     @EmbeddedId
     private OrderItemKey id;
 
@@ -42,5 +43,10 @@ public class OrderItem{
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    @Override
+    public String toString() {
+        return order + " " + product;
     }
 }

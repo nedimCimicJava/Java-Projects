@@ -12,10 +12,9 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
 
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Column(name = "name")
     private String name;
-
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
@@ -60,5 +59,13 @@ public class Order {
     @Override
     public int hashCode() {
         return orderId != null ? orderId.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
